@@ -6,45 +6,47 @@ import {
   RefreshCw,
   Zap,
   Target,
-  BarChart3
+  BarChart3,
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
 import { StatCard } from './components/StatCard';
 import { PositionsTable } from './components/PositionsTable';
 import { SignalsPanel } from './components/SignalsPanel';
 import { PerformanceChart } from './components/PerformanceChart';
 import { RecentTrades } from './components/RecentTrades';
+import { useDashboardData } from './hooks/useDashboardData';
 import { mockData, mockChartData } from './lib/mockData';
 import { formatCurrency, formatPercent, cn } from './lib/utils';
 
 function App() {
-  const [data, setData] = useState(mockData);
+  const { data: liveData, chartData: liveChartData, loading, error, lastFetch, refetch } = useDashboardData();
   const [isLive, setIsLive] = useState(true);
-  const [lastUpdate, setLastUpdate] = useState(new Date());
+  
+  // Use live data if available, otherwise mock
+  const data = liveData || mockData;
+  const chartData = liveChartData.length > 0 ? liveChartData : mockChartData;
+  const hasLiveData = !!liveData;
 
-  // Simulate live updates
+  // Auto-refresh when live
   useEffect(() => {
     if (!isLive) return;
-    
-    const interval = setInterval(() => {
-      setData(prev => ({
-        ...prev,
-        account: {
-          ...prev.account,
-          equity: prev.account.equity + (Math.random() - 0.48) * 50,
-          dailyPL: prev.account.dailyPL + (Math.random() - 0.48) * 20,
-        },
-        sentiment: {
-          ...prev.sentiment,
-          overall: Math.max(-1, Math.min(1, prev.sentiment.overall + (Math.random() - 0.5) * 0.02)),
-        }
-      }));
-      setLastUpdate(new Date());
-    }, 3000);
-
+    const interval = setInterval(refetch, 30000);
     return () => clearInterval(interval);
-  }, [isLive]);
+  }, [isLive, refetch]);
 
   const plType = data.account.dailyPL >= 0 ? 'positive' : 'negative';
+
+  if (loading && !liveData) {
+    return (
+      <div className="min-h-screen gradient-bg flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 size={48} className="text-green-400 animate-spin mx-auto mb-4" />
+          <p className="text-dark-400">Loading Quantic...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen gradient-bg">
@@ -63,18 +65,36 @@ function App() {
             </div>
             
             <div className="flex items-center gap-4">
+              {/* Data source indicator */}
+              <div className={cn(
+                "px-3 py-1 rounded-full text-xs font-medium",
+                hasLiveData ? "bg-green-500/20 text-green-400" : "bg-yellow-500/20 text-yellow-400"
+              )}>
+                {hasLiveData ? "📡 LIVE DATA" : "🔄 MOCK DATA"}
+              </div>
+              
+              {error && (
+                <div className="flex items-center gap-1 text-red-400 text-sm">
+                  <AlertCircle size={14} />
+                  <span>Connection Error</span>
+                </div>
+              )}
+              
               <div className="flex items-center gap-2">
                 <div className={cn(
                   "w-2 h-2 rounded-full",
                   isLive ? "bg-green-400 animate-pulse" : "bg-dark-500"
                 )} />
                 <span className="text-dark-400 text-sm">
-                  {isLive ? 'Live' : 'Paused'}
+                  {isLive ? 'Auto-refresh' : 'Paused'}
                 </span>
               </div>
               
               <button
-                onClick={() => setIsLive(!isLive)}
+                onClick={() => {
+                  if (!isLive) refetch();
+                  setIsLive(!isLive);
+                }}
                 className={cn(
                   "p-2 rounded-lg transition-all",
                   isLive ? "bg-green-500/20 text-green-400" : "bg-dark-700 text-dark-400"
@@ -86,7 +106,7 @@ function App() {
               <div className="text-right">
                 <p className="text-dark-400 text-xs">Last Update</p>
                 <p className="text-white text-sm font-medium">
-                  {lastUpdate.toLocaleTimeString()}
+                  {lastFetch ? lastFetch.toLocaleTimeString() : 'Never'}
                 </p>
               </div>
             </div>
@@ -117,7 +137,7 @@ function App() {
           <StatCard
             title="Win Rate"
             value={`${(data.performance.winRate * 100).toFixed(0)}%`}
-            change={`${data.performance.tradesCount} trades`}
+            change={`${data.performance.tradesCount} positions`}
             changeType="neutral"
             icon={Target}
           />
@@ -134,7 +154,7 @@ function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Chart - spans 2 columns */}
           <div className="lg:col-span-2">
-            <PerformanceChart data={mockChartData} />
+            <PerformanceChart data={chartData} />
           </div>
           
           {/* Signals Panel */}

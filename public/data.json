@@ -1,0 +1,299 @@
+{
+  "account": {
+    "equity": 100725.38,
+    "cash": -8449.55,
+    "buyingPower": 70469.11,
+    "dailyPL": 725.3800000000047,
+    "dailyPLPC": 0.007253800000000046
+  },
+  "positions": [
+    {
+      "symbol": "ASTS",
+      "qty": 126.023944549,
+      "avgEntry": 79.35,
+      "currentPrice": 84.05,
+      "unrealizedPL": 592.312539,
+      "unrealizedPLPC": 0.05923,
+      "marketValue": 10592.312539
+    },
+    {
+      "symbol": "FNGU",
+      "qty": 585.823081429,
+      "avgEntry": 17.07,
+      "currentPrice": 17.21,
+      "unrealizedPL": 82.015231,
+      "unrealizedPLPC": 0.0082,
+      "marketValue": 10082.015231
+    },
+    {
+      "symbol": "IONQ",
+      "qty": 261.616415958,
+      "avgEntry": 30.579122,
+      "currentPrice": 31.3045,
+      "unrealizedPL": 189.770792,
+      "unrealizedPLPC": 0.02372,
+      "marketValue": 8189.771093
+    },
+    {
+      "symbol": "LABU",
+      "qty": 34.189158966,
+      "avgEntry": 169.91,
+      "currentPrice": 170.88,
+      "unrealizedPL": 33.163484,
+      "unrealizedPLPC": 0.00571,
+      "marketValue": 5842.243484
+    },
+    {
+      "symbol": "LUNR",
+      "qty": 278.551532033,
+      "avgEntry": 17.95,
+      "currentPrice": 18.03,
+      "unrealizedPL": 22.284123,
+      "unrealizedPLPC": 0.00446,
+      "marketValue": 5022.284123
+    },
+    {
+      "symbol": "MARA",
+      "qty": 749.558709677,
+      "avgEntry": 7.75,
+      "currentPrice": 7.88,
+      "unrealizedPL": 97.442632,
+      "unrealizedPLPC": 0.01677,
+      "marketValue": 5906.522632
+    },
+    {
+      "symbol": "MSTR",
+      "qty": 79.776625448,
+      "avgEntry": 125.35,
+      "currentPrice": 124.05,
+      "unrealizedPL": -103.709613,
+      "unrealizedPLPC": -0.01037,
+      "marketValue": 9896.290387
+    },
+    {
+      "symbol": "QUBT",
+      "qty": 1287.001287001,
+      "avgEntry": 7.77,
+      "currentPrice": 7.86,
+      "unrealizedPL": 115.830116,
+      "unrealizedPLPC": 0.01158,
+      "marketValue": 10115.830116
+    },
+    {
+      "symbol": "RGTI",
+      "qty": 369.064803049,
+      "avgEntry": 15.74,
+      "currentPrice": 15.99,
+      "unrealizedPL": 92.266201,
+      "unrealizedPLPC": 0.01588,
+      "marketValue": 5901.346201
+    },
+    {
+      "symbol": "RIOT",
+      "qty": 371.424552429,
+      "avgEntry": 15.64,
+      "currentPrice": 15.6696,
+      "unrealizedPL": 10.994167,
+      "unrealizedPLPC": 0.00189,
+      "marketValue": 5820.074167
+    },
+    {
+      "symbol": "RKLB",
+      "qty": 83.188887297,
+      "avgEntry": 69.83,
+      "currentPrice": 70.07,
+      "unrealizedPL": 19.965333,
+      "unrealizedPLPC": 0.00344,
+      "marketValue": 5829.045333
+    },
+    {
+      "symbol": "SOXL",
+      "qty": 154.03573629,
+      "avgEntry": 64.92,
+      "currentPrice": 65.8574,
+      "unrealizedPL": 144.393099,
+      "unrealizedPLPC": 0.01444,
+      "marketValue": 10144.393099
+    },
+    {
+      "symbol": "SQQQ",
+      "qty": 79.157923422,
+      "avgEntry": 73.385957,
+      "currentPrice": 72.66,
+      "unrealizedPL": -57.465248,
+      "unrealizedPLPC": -0.00989,
+      "marketValue": 5751.614716
+    },
+    {
+      "symbol": "TQQQ",
+      "qty": 208.159866777,
+      "avgEntry": 48.04,
+      "currentPrice": 48.43,
+      "unrealizedPL": 81.182348,
+      "unrealizedPLPC": 0.00812,
+      "marketValue": 10081.182348
+    }
+  ],
+  "sentiment": {
+    "overall": 0.171,
+    "direction": "bullish",
+    "confidence": 0.47,
+    "sources": {
+      "twitter": {
+        "signal": -0.078,
+        "count": 73
+      },
+      "reddit": {
+        "signal": 0.0,
+        "count": 0
+      },
+      "polymarket": {
+        "signal": 0.824,
+        "count": 36
+      }
+    },
+    "topBullish": [
+      {
+        "ticker": "NVDA",
+        "signal": 0.45
+      },
+      {
+        "ticker": "ASTS",
+        "signal": 0.38
+      },
+      {
+        "ticker": "COIN",
+        "signal": 0.32
+      }
+    ],
+    "topBearish": [
+      {
+        "ticker": "TSLA",
+        "signal": -0.28
+      },
+      {
+        "ticker": "GME",
+        "signal": -0.22
+      }
+    ],
+    "fedSentiment": {
+      "sentiment": "dovish",
+      "strength": 0.65
+    },
+    "cryptoSentiment": {
+      "sentiment": "bullish",
+      "strength": 0.72
+    }
+  },
+  "signals": [],
+  "recentTrades": [
+    {
+      "id": "0",
+      "timestamp": "2026-02-23T19:31:34.263415",
+      "action": "BUY",
+      "ticker": "SQQQ",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.6199999999999999,
+      "reason": ""
+    },
+    {
+      "id": "1",
+      "timestamp": "2026-02-23T19:31:34.300409",
+      "action": "BUY",
+      "ticker": "RIOT",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.6199999999999999,
+      "reason": ""
+    },
+    {
+      "id": "2",
+      "timestamp": "2026-02-23T19:31:34.325393",
+      "action": "BUY",
+      "ticker": "LABU",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.5800000000000001,
+      "reason": ""
+    },
+    {
+      "id": "3",
+      "timestamp": "2026-02-23T19:31:34.347142",
+      "action": "BUY",
+      "ticker": "MARA",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.5800000000000001,
+      "reason": ""
+    },
+    {
+      "id": "4",
+      "timestamp": "2026-02-23T19:31:34.359396",
+      "action": "BUY",
+      "ticker": "RKLB",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.5800000000000001,
+      "reason": ""
+    },
+    {
+      "id": "5",
+      "timestamp": "2026-02-23T19:31:34.392365",
+      "action": "BUY",
+      "ticker": "RGTI",
+      "amount": 5809.084600000002,
+      "price": 0,
+      "signal": 0.58,
+      "reason": ""
+    }
+  ],
+  "performance": {
+    "totalReturn": 725.3800000000047,
+    "totalReturnPct": 0.007253800000000046,
+    "winRate": 0.8571428571428571,
+    "sharpeRatio": 1.24,
+    "maxDrawdown": 0.08,
+    "tradesCount": 14,
+    "avgWin": 123.46833875,
+    "avgLoss": -80.58743050000001
+  },
+  "chartData": [
+    {
+      "date": "Feb 17",
+      "equity": 100000,
+      "pl": 0
+    },
+    {
+      "date": "Feb 18",
+      "equity": 100250,
+      "pl": 250
+    },
+    {
+      "date": "Feb 19",
+      "equity": 99850,
+      "pl": -400
+    },
+    {
+      "date": "Feb 20",
+      "equity": 100420,
+      "pl": 570
+    },
+    {
+      "date": "Feb 21",
+      "equity": 100180,
+      "pl": -240
+    },
+    {
+      "date": "Feb 22",
+      "equity": 100650,
+      "pl": 470
+    },
+    {
+      "date": "Feb 23",
+      "equity": 100725.38,
+      "pl": 75.38
+    }
+  ],
+  "lastUpdated": "2026-02-24T00:01:31.858358"
+}
